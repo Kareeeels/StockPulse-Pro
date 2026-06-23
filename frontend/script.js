@@ -40,21 +40,31 @@ async function handleLogin(e) {
     const password = document.getElementById('password').value;
 
     try {
+        console.log('Intentando login en:', API_URL + '/auth/login');
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         });
 
+        console.log('Respuesta del servidor:', response);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const user = await response.json();
-        if (user) {
+        console.log('Usuario recibido:', user);
+
+        if (user && user.id) {
             localStorage.setItem('user', JSON.stringify(user));
             window.location.href = 'index.html';
         } else {
             alert('Usuario o contraseña incorrectos');
         }
     } catch (error) {
-        alert('Error al iniciar sesión');
+        console.error('Error en login:', error);
+        alert('Error al iniciar sesión:\n' + error.message);
     }
 }
 
@@ -64,16 +74,22 @@ async function handleRegister(e) {
     const password = document.getElementById('regPassword').value;
 
     try {
-        await fetch(`${API_URL}/auth/register`, {
+        console.log('Intentando registro en:', API_URL + '/auth/register');
+        const response = await fetch(`${API_URL}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         alert('Registro exitoso! Ahora inicia sesión');
         window.location.href = 'login.html';
     } catch (error) {
-        alert('Error al registrarse');
+        console.error('Error en registro:', error);
+        alert('Error al registrarse:\n' + error.message);
     }
 }
 
