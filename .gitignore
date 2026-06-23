@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Java / Maven build output
+backend/target/
+
+# Logs
+*.log
+
+# Environment and local overrides
+.env
+.env.*

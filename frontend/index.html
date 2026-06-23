@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockPulse Pro - Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>StockPulse Pro</h1>
+            <button id="logoutBtn" class="btn-danger">Cerrar sesión</button>
+        </div>
+
+        <div class="form-section">
+            <h2 id="formTitle">Agregar Acción</h2>
+            <form id="stockForm">
+                <input type="hidden" id="stockId">
+                <input type="text" id="nombreEmpresa" placeholder="Nombre de la empresa" required>
+                <input type="text" id="simbolo" placeholder="Símbolo" required>
+                <input type="text" id="sector" placeholder="Sector" required>
+                <input type="number" id="precioActual" placeholder="Precio actual" step="0.01" required>
+                <input type="text" id="mercado" placeholder="Mercado" required>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" id="submitBtn">Agregar</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary hidden">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Acciones Registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Símbolo</th>
+                        <th>Sector</th>
+                        <th>Precio</th>
+                        <th>Mercado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="stocksTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
