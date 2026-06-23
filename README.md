@@ -22,7 +22,7 @@ stockpulse-pro/
 2. Abre el archivo `login.html` en tu navegador web (double-click o usa un servidor simple como Python HTTP Server)
 
 ## Configuración
-El frontend está configurado para conectarse al backend en `http://194.163.180.138:10000/api`. Si necesitas cambiar la URL, edita el archivo `frontend/script.js` y actualiza la variable `API_URL`.
+El frontend está configurado para conectarse al backend en `http://localhost:8080/api`. Si necesitas cambiar la URL, edita el archivo `frontend/script.js` y actualiza la variable `API_URL`.
 
 ## Datos de ejemplo para pruebas
 
