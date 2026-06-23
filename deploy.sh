@@ -51,24 +51,24 @@ screen -S stockpulse-backend -X quit || true
 screen -S stockpulse-frontend -X quit || true
 sleep 2
 
-echo -e "${YELLOW}7. Iniciando Backend en puerto 8081 (screen: stockpulse-backend)...${NC}"
+echo -e "${YELLOW}7. Iniciando Backend en puerto 9090 (screen: stockpulse-backend)...${NC}"
 screen -dmS stockpulse-backend bash -c "cd /opt/StockPulse-Pro/backend && java -jar target/stockpulse-pro-1.0.0.jar"
 
-echo -e "${YELLOW}8. Iniciando Frontend en puerto 3001 (screen: stockpulse-frontend)...${NC}"
-screen -dmS stockpulse-frontend bash -c "cd /opt/StockPulse-Pro/frontend && python3 -m http.server 3001"
+echo -e "${YELLOW}8. Iniciando Frontend en puerto 9091 (screen: stockpulse-frontend)...${NC}"
+screen -dmS stockpulse-frontend bash -c "cd /opt/StockPulse-Pro/frontend && python3 -m http.server 9091"
 
 echo -e "${YELLOW}9. Configurando Firewall (ufw)...${NC}"
 ufw allow 22/tcp
-ufw allow 8081/tcp
-ufw allow 3001/tcp
+ufw allow 9090/tcp
+ufw allow 9091/tcp
 echo "y" | ufw enable
 
 echo -e "\n${GREEN}========================================="
 echo "  ✅ DEPLOY COMPLETADO!"
 echo "=========================================${NC}"
 echo ""
-echo "  📱 Frontend: http://194.163.180.138:3001/login.html"
-echo "  🖥️  Backend API: http://194.163.180.138:8081/api"
+echo "  📱 Frontend: http://194.163.180.138:9091/login.html"
+echo "  🖥️  Backend API: http://194.163.180.138:9090/api"
 echo ""
 echo "  Credenciales de acceso:"
 echo "  Usuario: admin"

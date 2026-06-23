@@ -3,8 +3,8 @@
 ## Información del VPS
 - IP: 194.163.180.138
 - OS: Ubuntu 24.04
-- Backend port: 8081
-- Frontend port: 3001 (o el que prefieras)
+- Backend port: 9090
+- Frontend port: 9091
 
 ## Paso 1: Conectar al VPS via SSH
 ```bash
@@ -69,21 +69,21 @@ cd /opt/StockPulse-Pro/frontend
 # Instalar un servidor simple (usaremos Python 3)
 sudo apt install python3 -y
 
-# Ejecutar el frontend en el puerto 3001
+# Ejecutar el frontend en el puerto 9091
 screen -S stockpulse-frontend
-python3 -m http.server 3001
+python3 -m http.server 9091
 ```
 
 ## Paso 7: Configurar Firewall (ufw)
 ```bash
-sudo ufw allow 8081/tcp
-sudo ufw allow 3001/tcp
+sudo ufw allow 9090/tcp
+sudo ufw allow 9091/tcp
 sudo ufw enable
 ```
 
 ## Acceso a la aplicación
-- **Frontend**: http://194.163.180.138:3001/login.html
-- **Backend API**: http://194.163.180.138:8081/api
+- **Frontend**: http://194.163.180.138:9091/login.html
+- **Backend API**: http://194.163.180.138:9090/api
 
 ## Credenciales de acceso
 - Usuario: admin
