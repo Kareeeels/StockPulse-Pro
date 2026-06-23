@@ -1,48 +1,28 @@
-# StockPulse Pro
+# StockPulse Pro (Frontend)
 
-Aplicación simple de gestión de acciones con login.
+Frontend de la aplicación StockPulse Pro, desarrollado con HTML, CSS y JavaScript.
+
+## Repositorio del Backend
+El backend está en un repositorio separado: https://github.com/Kareeeels/StockPulse-
 
 ## Estructura del Proyecto
 ```
 stockpulse-pro/
-├── backend/          # Spring Boot backend
 ├── frontend/         # HTML/CSS/JS frontend
 ├── dart_utils/       # Archivo Dart de ejemplo
 └── README.md
 ```
 
 ## Requisitos previos
-- Java 17 o superior
-- Maven
-- PostgreSQL
 - (Opcional) Dart SDK para ejecutar el archivo Dart
 
-## Paso 1: Crear la base de datos en PostgreSQL
+## Ejecutar el frontend
 
-1. Abre psql o pgAdmin
-2. Ejecuta los siguientes comandos:
-```sql
-CREATE DATABASE stockpulse_db;
-```
-3. (Opcional) Si tu usuario y contraseña de PostgreSQL no son "postgres"/"postgres", edita el archivo `backend/src/main/resources/application.properties` y actualiza las credenciales.
+1. Abre la carpeta `frontend/`
+2. Abre el archivo `login.html` en tu navegador web (double-click o usa un servidor simple como Python HTTP Server)
 
-## Paso 2: Ejecutar el backend
-
-1. Abre una terminal y navega a la carpeta `backend/`
-2. Ejecuta:
-```bash
-mvnw spring-boot:run
-```
-O si tienes Maven instalado globalmente:
-```bash
-mvn spring-boot:run
-```
-El backend se ejecutará en http://localhost:8080
-
-## Paso 3: Abrir el frontend
-
-1. Navega a la carpeta `frontend/`
-2. Abre el archivo `login.html` en tu navegador web (double-click o abre con tu navegador preferido)
+## Configuración
+El frontend está configurado para conectarse al backend en `http://194.163.180.138:10000/api`. Si necesitas cambiar la URL, edita el archivo `frontend/script.js` y actualiza la variable `API_URL`.
 
 ## Datos de ejemplo para pruebas
 
